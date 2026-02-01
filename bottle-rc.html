@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="lunar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottle RC | Sustainable Aviation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+    // PRE-LOAD THEME to prevent flash
+    const saved = localStorage.getItem('portfolio_theme');
+    if(saved) document.documentElement.setAttribute('data-theme', saved);
+</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="logo">SKD<span style="color:var(--accent-primary)">.</span></div>
+        
+        <ul class="nav-links" id="nav-links">
+            <div class="menu-close-btn" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></div>
+            <li class="nav-item"><a href="index.html"><i class="fas fa-arrow-left"></i> Back Home</a></li>
+            <li class="nav-item"><a href="#specs" onclick="toggleMobileMenu()">Specs</a></li>
+            <li class="nav-item"><a href="#gallery" onclick="toggleMobileMenu()">Gallery</a></li>
+            <li class="nav-item"><a href="#team" onclick="toggleMobileMenu()">Team</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+                <span id="theme-text">LUNAR</span>
+            </button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="project-hero">
+        <div class="hero-bg-img"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="project-hero-content load-animate-up">
+            <div class="pill-label">
+                <i class="fas fa-globe"></i> Sustainable Aviation Project
+            </div>
+            <h1 class="big-title">
+                BOTTLE <span style="color:var(--accent-primary)">RC</span> PLANE
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.6;">
+                A high-lift RC trainer engineered entirely from recycled PET bottles.<br>
+                Merging sustainability with aerodynamic precision.
+            </p>
+            <div class="hero-actions">
+                <a href="#specs" class="btn btn-primary">Technical Specs</a>
+                <a href="#gallery" class="btn btn-outline">Watch Flight <i class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <section id="specs" class="bg-secondary">
+        <div class="container">
+            <div class="two-col-grid">
+                <div>
+                    <div class="pill-label" style="margin-bottom: 10px; border:none; padding-left:0;">
+                        <i class="fas fa-microchip"></i> TECHNICAL DATA
+                    </div>
+
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">
+                        From Trash to <br><span style="color:var(--accent-primary)">Takeoff</span>
+                    </h2>
+
+                    <p style="color:var(--text-muted); margin-bottom: 30px;">
+                        Despite the unconventional fuselage material, the Bottle RC Plane is designed with rigorous aerodynamic principles. The NACA 6412 airfoil provides the necessary high-lift characteristics to support the heavier PET chassis at low speeds.
+                    </p>
+                    
+                    <div class="specs-container">
+                        <div class="spec-box">
+                            <div class="spec-title">Airfoil</div>
+                            <div class="spec-data">NACA 6412</div>
+                        </div>
+                        <div class="spec-box">
+                            <div class="spec-title">Wingspan</div>
+                            <div class="spec-data">1200mm</div>
+                        </div>
+                        <div class="spec-box">
+                            <div class="spec-title">Weight</div>
+                            <div class="spec-data">~950g</div>
+                        </div>
+                        <div class="spec-box">
+                            <div class="spec-title">Motor</div>
+                            <div class="spec-data">1000KV</div>
+                        </div>
+                        <div class="spec-box">
+                            <div class="spec-title">Battery</div>
+                            <div class="spec-data">3S 2200mAh</div>
+                        </div>
+                        <div class="spec-box">
+                            <div class="spec-title">Flight Time</div>
+                            <div class="spec-data">10 Mins</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 25px; color: var(--text-main);">Engineering Challenges</h3>
+                    
+                    <div class="challenge-card">
+                        <h4 style="color:var(--text-main); margin-bottom:10px;">1. Structural Rigidity</h4>
+                        <p style="color:var(--text-muted); font-size: 0.9rem;">Joining cylindrical bottles while maintaining a straight thrust line required developing a custom heat-shrink jig to ensure perfect alignment.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <h4 style="color:var(--text-main); margin-bottom:10px;">2. Weight Management</h4>
+                        <p style="color:var(--text-muted); font-size: 0.9rem;">The PET fuselage is heavier than balsa. We optimized wing loading by extending the span to 1200mm and utilizing a high-lift airfoil.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <h4 style="color:var(--text-main); margin-bottom:10px;">3. CG Balancing</h4>
+                        <p style="color:var(--text-muted); font-size: 0.9rem;">The heavy plastic tail section required precise placement of the LiPo battery in the nose bottle to achieve the correct Center of Gravity (25-30% MAC).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Mission Gallery</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom: 40px; margin-top:-30px;">Field tests and construction logs.</p>
+            
+            <div class="gallery-masonry">
+                <img src="/public/images/plane.jpg" class="gallery-img" alt="PLANE">
+                <img src="/public/images/img4.jpg" class="gallery-img" alt="Field Test">
+                <img src="/public/images/IMG_2.jpg" class="gallery-img" alt="Group">
+            </div>
+
+            <div style="margin-top: 60px;">
+    <h3 class="section-title" style="font-size: 1.5rem; text-align: left;">Flight Logs</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        
+        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank" class="challenge-card challenge-video-item">
+            <div style="background:var(--bg-core); padding:10px; border-radius:50%; color:var(--accent-primary);">
+                <i class="fas fa-play"></i>
+            </div>
+            <div>
+                <h4 style="font-size:1rem; color:var(--text-main);">Maiden Flight</h4>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:'Space Mono'">0:45 | Hand Launch</span>
+            </div>
+        </a>
+
+        <a href="https://youtu.be/YOUR_LINK_HERE" target="_blank" class="challenge-card challenge-video-item">
+             <div style="background:var(--bg-core); padding:10px; border-radius:50%; color:var(--accent-primary);">
+                <i class="fas fa-play"></i>
+            </div>
+            <div>
+                <h4 style="font-size:1rem; color:var(--text-main);">Stability Test</h4>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:'Space Mono'">1:20 | Bank Angles</span>
+            </div>
+        </a>
+
+        <a href="https://youtu.be/YOUR_LINK_HERE" target="_blank" class="challenge-card challenge-video-item">
+             <div style="background:var(--bg-core); padding:10px; border-radius:50%; color:var(--accent-primary);">
+                <i class="fas fa-play"></i>
+            </div>
+            <div>
+                <h4 style="font-size:1rem; color:var(--text-main);">Landing</h4>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-family:'Space Mono'">0:30 | Field Recovery</span>
+            </div>
+        </a>
+
+    </div>
+</div>
+        </div>
+    </section>
+
+    <section id="team" class="bg-secondary">
+        <div class="container">
+            <div class="two-col-grid">
+                <div>
+                    <h2 class="section-title" style="text-align: left;">The Team</h2>
+                    <p style="color:var(--text-muted); margin-bottom: 30px; font-size: 1.1rem;">
+                        We are a group of aerospace enthusiasts dedicated to proving that high-performance engineering doesn't require expensive composites.
+                         This project serves as a proof-of-concept for accessible aviation education.<br><br><strong>Team Members:</strong> <br><br>
+                        <strong>Project Manager:</strong> Alex Johnson<br>
+                        <strong>Lead Engineer:</strong> Shree Krishna Devkota<br>
+                        <strong>Design Specialist:</strong> Maria Rodriguez<br>
+                        <strong>Flight Test Coordinator:</strong> Liam Smith<br>
+                        <strong>Documentation Lead:</strong> Emily Davis
+                    </p>
+                    <div class="social-icons-contact" style="justify-content: flex-start;">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/shree-krishna-devkota-720ba6187/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/shreekrishna_devkota/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div style="position:relative;">
+                    <div class="team-image-wrapper">
+                        <img src="/public/images/img5.jpg" 
+                             class="team-img-style" 
+                             alt="Team">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="copyright">Copyright &copy; <span id="year"></span> Bottle RC Project. Designed by SKD.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
